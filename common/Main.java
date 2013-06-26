@@ -21,6 +21,7 @@ public class Main
          @SuppressWarnings("unused") MainMenu2 thing2 = new MainMenu2();
       } else {
          //TO-DO Code for closing game
+        
       }
       
       

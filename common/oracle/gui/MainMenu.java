@@ -74,6 +74,7 @@ public class MainMenu implements MouseListener
    @Override
    public void mouseEntered(MouseEvent e)
    {
+      
       if (e.getSource() == sideButtons[0]) {
          sideButtons[0].setText("Begin!");
       } else if (e.getSource() == sideButtons[1]) {
