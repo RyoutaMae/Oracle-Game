@@ -10,7 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import oracle.util.OracleColors;
+import oracle.audio.OSound;
+import oracle.ref.OracleAudio;
+import oracle.ref.OracleColors;
 
 public class Menu implements MouseListener
 {
@@ -21,18 +23,20 @@ public class Menu implements MouseListener
    protected JButton[] sideButtons = new JButton[6];
    protected JLabel oracleTitleHolder = new JLabel();
    protected ImageIcon oracleTitle = new ImageIcon();
-   
+   private OSound bgMenu = new OSound(OracleAudio.soundFiles[0]);
+
    public Menu() {
 
+      bgMenu.playSound();
       window.add(mainPanel);
       window.setVisible(true);
       window.setSize(800, 536);
-      
+
       mainPanel.setLayout(null);
       mainPanel.add(buttonsPanel);
       mainPanel.setBackground(OracleColors.SKY_BLUE);
       buttonsPanel.setBackground(OracleColors.SKY_BLUE);
-      
+
       for (int i = 0; i < sideButtons.length; i++) {
          sideButtons[i] = new JButton();
          sideButtons[i].addMouseListener(this);
@@ -48,26 +52,32 @@ public class Menu implements MouseListener
       window.setLocationRelativeTo(null);
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    }
-   
-   public void startLocalGame() {
+
+   public void startLocalGame()
+   {
       int numPlayers = Integer.parseInt(JOptionPane.showInputDialog("How many players?"));
-      @SuppressWarnings("unused") OracleScreen game = new OracleScreen(numPlayers);
-      window.dispose();
+      
+      bgMenu.stopSound();
+      window.setVisible(false);
+      @SuppressWarnings("unused")
+      OracleScreen game = new OracleScreen(numPlayers);
    }
 
    @Override
    public void mouseClicked(MouseEvent e)
    {
+      OSound pop = new OSound(OracleAudio.soundFiles[2]);
+      pop.playSound();
       if (e.getSource() == sideButtons[0]) {
          startLocalGame();
       } else if (e.getSource() == sideButtons[1]) {
-         
+
       } else if (e.getSource() == sideButtons[2]) {
-         
+
       } else if (e.getSource() == sideButtons[3]) {
-         
+         sideButtons[3].setText("SO MANY THINGS");
       } else if (e.getSource() == sideButtons[4]) {
-         
+
       } else if (e.getSource() == sideButtons[5]) {
          window.dispose();
          System.exit(0);
@@ -86,7 +96,7 @@ public class Menu implements MouseListener
       } else if (e.getSource() == sideButtons[3]) {
          sideButtons[3].setText("I am currently doing things!");
       } else if (e.getSource() == sideButtons[4]) {
-         
+
       } else if (e.getSource() == sideButtons[5]) {
          sideButtons[5].setText("WHY WOULD YOU LEAVE ME?");
       }
