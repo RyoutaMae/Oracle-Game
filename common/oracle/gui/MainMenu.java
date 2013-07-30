@@ -9,7 +9,7 @@ import java.awt.GridLayout;
  */
 public class MainMenu extends Menu
 {
-   
+
    public MainMenu() {
       super();
 
