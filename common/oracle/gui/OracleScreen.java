@@ -42,6 +42,8 @@ public class OracleScreen implements KeyListener
 
       bgMus.playSound();
       
+      this.numPlayers = numPlayers;
+      
       window.setVisible(true);
       window.setSize(600, 500);
       window.setLocationRelativeTo(null);
@@ -57,35 +59,23 @@ public class OracleScreen implements KeyListener
       playersPanel.setLayout(new GridLayout(25, 0));
       playersPanel.setSize(225, 500);
       
-      for (int i = 0; i < playersGrid.length; i++) {
-         playersGrid[i] = new JPanel();
-         if (i % 2 == 0) {
-            playersGrid[i].setBackground(OracleColors.SKY_BLUE);
-         } else {
-            playersGrid[i].setBackground(OracleColors.PALE_BLUE);
-         }
-         
-         playersPanel.add(playersGrid[i]);
-      }
+      inputBox.setLocation(260, 420);
+      inputBox.setSize(300, 32);
+      inputBox.setLineWrap(true);
+      inputBox.addKeyListener(this);
       
-      this.numPlayers = numPlayers;
-      namePlayers(numPlayers);
+      loadPlayers();
       
       lastQA.setLocation(150, 0);
       lastQA.setSize(200, 50);
       lastQA.setBackground(Color.LIGHT_GRAY);
       lastQA.setFont(new Font("Arial", Font.BOLD, 20));
       
-      inputBox.setLocation(290, 440);
-      inputBox.setSize(300, 32);
-      inputBox.setLineWrap(true);
-      inputBox.addKeyListener(this);
-      
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    }
    
    private void namePlayers(int players) {
-      for (int i = 0; i < players - 1; i++) {
+      for (int i = 0; i < players; i++) {
          String pName = JOptionPane.showInputDialog("Enter your name Player " + (i + 1), "Player " + (i + 1));
          playersGrid[i].add(new JLabel(pName));
          playerList.add(pName);
@@ -93,6 +83,7 @@ public class OracleScreen implements KeyListener
    }
    
    private void cyclePlayer() {
+      
       if (currentPlayer % 2 == 0) {
          playersGrid[currentPlayer].setBackground(OracleColors.SKY_BLUE);
       } else {
@@ -102,7 +93,7 @@ public class OracleScreen implements KeyListener
       if (currentPlayer < numPlayers - 1) {
          currentPlayer++;
       } else {
-         
+         currentPlayer = 0;
       }
       
       
@@ -136,6 +127,27 @@ public class OracleScreen implements KeyListener
          cyclePlayer();
 
       }
+   }
+   
+   private void loadPlayers() {
+      
+      
+      for (int i = 0; i < playersGrid.length; i++) {
+         playersGrid[i] = new JPanel();
+         if (i % 2 == 0) {
+            playersGrid[i].setBackground(OracleColors.SKY_BLUE);
+         } else {
+            playersGrid[i].setBackground(OracleColors.PALE_BLUE);
+         }
+         
+         playersPanel.add(playersGrid[i]);
+      }
+      
+      namePlayers(numPlayers);
+      
+      playersGrid[0].setBackground(OracleColors.BRONZE);
+      
+
    }
 
    @Override
