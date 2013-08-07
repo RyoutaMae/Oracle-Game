@@ -32,11 +32,11 @@ public class GameLogger
       if (qa) {
          log.write("Q: " + input);
          qa = false;
-         System.out.println("Logger: I logged a question from " + player + " !");
+         System.out.println("Logger: I logged a question from " + player + "!");
       } else {
          log.write("A: " + input);
          qa = true;
-         System.out.println("Logger: I logged an answer from " + player + " !");
+         System.out.println("Logger: I logged an answer from " + player + "!");
       }
 
       log.newLine();
