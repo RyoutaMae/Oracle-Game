@@ -8,12 +8,9 @@ public class OracleAudio
 
    public static void setupOracleAudio()
    {
-      soundFiles[0] = new File(
-            "D:\\Development\\Oracle\\source\\Oracle-Game\\resources\\menu.wav");
-      soundFiles[1] = new File(
-            "D:\\Development\\Oracle\\source\\Oracle-Game\\resources\\game.wav");
-      soundFiles[2] = new File(
-            "D:\\Development\\Oracle\\source\\Oracle-Game\\resources\\pop2.wav");
+      soundFiles[0] = new File("D:\\Development\\Oracle\\source\\Oracle-Game\\resources\\menu.wav");
+      soundFiles[1] = new File("D:\\Development\\Oracle\\source\\Oracle-Game\\resources\\game.wav");
+      soundFiles[2] = new File("D:\\Development\\Oracle\\source\\Oracle-Game\\resources\\pop2.wav");
    }
 
 }
