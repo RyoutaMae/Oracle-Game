@@ -12,8 +12,7 @@ public class Main
    public static void main(String[] args)
    {
       OracleAudio.setupOracleAudio();
-      @SuppressWarnings("unused")
-      MainMenu thing = new MainMenu();
+      new MainMenu();
       
 
    }
