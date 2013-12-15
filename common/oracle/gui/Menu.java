@@ -57,12 +57,21 @@ public class Menu implements MouseListener
    {
       int numPlayers = Integer.parseInt(JOptionPane.showInputDialog("How many players?"));
       
-      bgMenu.stopSound();
-      window.setVisible(false);
-      @SuppressWarnings("unused")
-      OracleScreen game = new OracleScreen(numPlayers);
+      closeMenu();
+      new OracleScreen(numPlayers);
+   }
+   
+   public void openArchives() 
+   {
+      closeMenu();
+      new ArchiveScreen();
    }
 
+   public void closeMenu() 
+   {
+      bgMenu.stopSound();
+      window.setVisible(false);
+   }
    @Override
    public void mouseClicked(MouseEvent e)
    {
@@ -73,13 +82,13 @@ public class Menu implements MouseListener
       } else if (e.getSource() == sideButtons[1]) {
 
       } else if (e.getSource() == sideButtons[2]) {
-
+         openArchives();
       } else if (e.getSource() == sideButtons[3]) {
          sideButtons[3].setText("SO MANY THINGS");
       } else if (e.getSource() == sideButtons[4]) {
 
       } else if (e.getSource() == sideButtons[5]) {
-         window.dispose();
+         closeMenu();
          System.exit(0);
       }
    }
