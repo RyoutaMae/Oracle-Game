@@ -5,7 +5,7 @@ import java.awt.Color;
 public final class OracleColors extends Color
 {
    /**
-    * 
+    * Fuckin shit
     */
    private static final long serialVersionUID = 1L;
 
