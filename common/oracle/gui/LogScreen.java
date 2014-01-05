@@ -19,7 +19,9 @@ public class LogScreen
    public LogScreen(ArrayList<String> log) {
 
       logStrings = log;
+      lines = new JLabel[log.size()];
       lineHolders = new JPanel[log.size()];
+      window.setVisible(true);;
       mainPanel.setLayout(null);
       
       linesPanel.setLayout(new GridLayout(log.size(),1, 5, 5));
